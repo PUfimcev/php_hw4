@@ -948,17 +948,27 @@ echo "<p style=\"font-weight: bold;\">Task 31 Напиши функцию, ко�
 
 function censorship($str) 
 {
-    $swearing_words = ["мудак", "гребан"];
+    $swearing_words = ["мудак", "гребаную"];
+
     $replacing_sign = ['#'];
+    $swearing_words_altered = [];
+    foreach($swearing_words as $v){
+        preg_match("/$v/", $str, $arr);
 
-    preg_match("мудак", $str, $arr);
+        $str_replaced = '';
 
-    print_r($arr);
-    
-    echo mb_stristr($str, "мудак");
-//    return str_replace($swearing_words, $replacing_sign, $str);
+        for($i = 0 ; $i < mb_strlen($arr[0]); $i++){
+            $str_replaced .= $replacing_sign[0];
+        }
+
+        array_push($swearing_words_altered, $str_replaced);
+    }
+
+
+    echo str_replace($swearing_words, $swearing_words_altered, $str);
+
 }
-echo censorship("Сделай функцию, мудак, которая принимает гребаную строку на русском языке");
+echo censorship("Сделай функцию, мудак, которая мудак принимает гребаную строку на русском языке");
 
 echo "<hr>";  
 
