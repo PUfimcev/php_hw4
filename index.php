@@ -491,7 +491,7 @@ function verify_tel($num)
 {
     if(array_key_exists("tel", $num) == false) return;
     $num = $num["tel"] ?? null;
-    $regExp = "/^\+\d{1,3}\s?\(?\d{2,3}\)?\s?\d{3}\-?\s?\d{2}\-?\s?\d{2}/im";
+    $regExp = "/^\+?\d{1,3}\s?\(?\d{2,3}\)?\s?\d{3}\-?\s?\d{2}\-?\s?\d{2}/im";
     
     if(!isset($num) || empty($num) || $num === null){
         return"<strong>Enter phone number</strong>";
